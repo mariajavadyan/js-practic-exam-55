@@ -23,3 +23,12 @@ class Singleton {
     }
   }
 }
+
+Array.prototype.groupBy = function (somekey) {
+  return this.reduce((groups, item) => {
+    const key = item[somekey];
+    groups[key] = groups[key] || [];
+    groups[key].push(item);
+    return groups;
+  }, {});
+};
